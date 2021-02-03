@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100vh;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.game-data {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.game-container {
+  height: 88vh;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  border-style: solid;
+  border-color: white;
+}
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 618px;
+  height: 618px;
+}
+
+.monster {
+  background-image: url("./cthulhu.jpg");
+  background-size: cover;
+}

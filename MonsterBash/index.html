@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Bash</title>
+    <!-- NES.css -->
+    <link
+      href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Press Start 2P font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css sheet -->
+    <link rel="stylesheet" href="./main.css" />
+
+    <script src="./dist/app.js" defer></script>
+  </head>
+
+  <body>
+    <div class="nes-container with-title is-centered is-rounded is-dark">
+      <p class="title">Monster Bash</p>
+      <div class="game-data">
+        <p>Time Remaining: <span id="time-left">5</span></p>
+        <p>Score: <span id="score">0</span></p>
+      </div>
+    </div>
+    <div
+      class="game-container nes-container is-dark is-rounded"
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div class="grid">
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+        <div class="square" id="9"></div>
+      </div>
+      <button
+        type="button"
+        onclick="startGame()"
+        id="reset-button"
+        class="nes-btn is-primary"
+      >
+        Replay?
+      </button>
+    </div>
+  </body>
+</html>
