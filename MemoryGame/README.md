@@ -1,10 +1,12 @@
-## Course Boilerplate Code
+## ArcadeTS - Memory Game
 
-Copy and paste folder to start a new TypeScript project.
+Memory game built using TypeScript.
+styled with [NES.css](https://nostalgic-css.github.io/NES.css/)
+cover dom-manipulation with typescript
 
-- created basic HTML5 doc and linked it to `app.js`, which is compiled from `app.ts`.
-- ran `npm init` (all default settings)
-- added `lite-server` to `start` script on package.json
-- added `.gitingore` to skip all subsequent `node_modules` folders by default
+- getAttribute
+- setAttribute
 
-**NOTE:** make sure to run `npm install` as the `node_modules` folder is retracted by default.
+issue with `this` (ln113), and need to add an interface for the deck
+
+**NOTE:** make sure to run `npm install`, as the `node_modules` folder is redacted by default.

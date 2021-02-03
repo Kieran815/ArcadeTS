@@ -22,30 +22,14 @@
     <script src="./dist/app.js" defer></script>
   </head>
 
-  <body>
-    <div class="nes-container with-title is-rounded is-dark">
-      <p class="title">ArcadeTS</p>
-      <p>Boilerplate to build TypeScript Games</p>
-
-      <a
-        class="nes-btn is-success"
-        href="https://github.com/Kieran815/typescript"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Connect to the Repo
-      </a>
-      <a
-        class="nes-btn is-primary"
-        href="https://nostalgic-css.github.io/NES.css/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        NES.css
-      </a>
-
-      <i class="nes-octocat animate"></i>
-      <i class="nes-"></i>
+  <body class="nes-container with-title is-rounded is-dark">
+    <p class="title">Memory Game</p>
+    <div class="nes-container with-title is-centered is-rounded is-dark">
+      <p class="title">Score: <span id="result" default="0">0</span></p>
+      <div class="grid">
+        <!--  -->
+      </div>
     </div>
+    <button id="restart" class="nes-btn is-success">Restart?</button>
   </body>
 </html>

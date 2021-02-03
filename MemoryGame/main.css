@@ -1,5 +1,22 @@
-* {
-  margin: 0;
-  padding: 0;
-  background-color: grey;
+body {
+  height: 100%;
+  width: auto;
+  display: grid;
+  place-items: center;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+#restart {
+  display: none;
 }
