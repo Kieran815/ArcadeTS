@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const squares: NodeListOf<HTMLElement> = document.querySelectorAll(
     ".grid div"
   );
-  const container: HTMLElement | null = document.querySelector("#container");
   const resultsContainer: HTMLElement | null = document.querySelector(
     "#results-container"
   );
   const result: HTMLElement | null = document.querySelector("#result");
   const resetButton: HTMLElement | null = document.querySelector(".nes-btn");
   const displayCurrentPlayer = document.querySelector("#current-player");
+  const bottom: NodeListOf<HTMLElement> = document.querySelectorAll(".bottom");
   let currentPlayer = 1;
   let gameOver = false;
 
@@ -124,11 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // add onclick to each square
       squares[i].onclick = function () {
         //
+        console.log(index);
         if (squares[index + 7].classList.contains("taken")) {
           if (
             currentPlayer === 1 &&
             squares[index].classList.toString() !== "taken player-two"
           ) {
+            console.log(squares[index]);
             squares[index].classList.add("taken");
             squares[index].classList.add("player-one");
             // change player
@@ -151,7 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // restart game
   function restartGame() {
-    location.reload();
+    console.log("clicked");
+    bottom.forEach((drop) => {
+      drop.classList.add("game-over");
+    });
+    setTimeout(() => {
+      location.reload();
+    }, 3500);
   }
   resetButton?.addEventListener("click", restartGame);
 });

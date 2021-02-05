@@ -1,11 +1,11 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", function () {
     var squares = document.querySelectorAll(".grid div");
-    var container = document.querySelector("#container");
     var resultsContainer = document.querySelector("#results-container");
     var result = document.querySelector("#result");
     var resetButton = document.querySelector(".nes-btn");
     var displayCurrentPlayer = document.querySelector("#current-player");
+    var bottom = document.querySelectorAll(".bottom");
     var currentPlayer = 1;
     var gameOver = false;
     function checkBoard() {
@@ -107,9 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0, len = squares.length; i < len; i++)
         (function (index) {
             squares[i].onclick = function () {
+                console.log(index);
                 if (squares[index + 7].classList.contains("taken")) {
                     if (currentPlayer === 1 &&
                         squares[index].classList.toString() !== "taken player-two") {
+                        console.log(squares[index]);
                         squares[index].classList.add("taken");
                         squares[index].classList.add("player-one");
                         currentPlayer = 2;
@@ -128,7 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
             };
         })(i);
     function restartGame() {
-        location.reload();
+        console.log("clicked");
+        bottom.forEach(function (drop) {
+            drop.classList.add("game-over");
+        });
+        setTimeout(function () {
+            location.reload();
+        }, 3500);
     }
     resetButton === null || resetButton === void 0 ? void 0 : resetButton.addEventListener("click", restartGame);
 });

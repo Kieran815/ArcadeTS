@@ -23,13 +23,16 @@ body {
 }
 
 .grid > div {
-  border: 1px solid black;
   height: 100px;
   width: 100px;
 }
 
+.grid > :nth-child(-n + 42) {
+  border: 1px solid black;
+}
+
 .taken {
-  background: black;
+  background: transparent;
   border-radius: 50px;
 }
 
@@ -55,4 +58,19 @@ body {
 
 button {
   padding-top: 5px;
+}
+
+.game-over {
+  animation: drop-chips;
+  animation-duration: 500ms;
+  animation-iteration-count: 6;
+}
+
+@keyframes drop-chips {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: blue;
+  }
 }
