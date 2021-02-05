@@ -1,0 +1,58 @@
+body {
+  height: 100vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #c3c3c3;
+  display: flex;
+  flex-wrap: wrap;
+  height: 600px;
+  width: 702px;
+}
+
+.grid > div {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+}
+
+.taken {
+  background: black;
+  border-radius: 50px;
+}
+
+.player-one {
+  background-color: red;
+  border-radius: 50px;
+}
+
+.player-two {
+  background-color: blue;
+  border-radius: 50px;
+}
+
+#container {
+  height: 100vh;
+}
+
+#results-container {
+  visibility: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  padding-top: 5px;
+}
