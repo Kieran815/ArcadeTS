@@ -22,12 +22,17 @@
     <script src="./dist/app.js" defer></script>
   </head>
 
-  <body class="nes-container with-title is-rounded is-dark">
-    <p class="title">Memory Game</p>
-    <div class="nes-container with-title is-centered is-rounded is-dark">
-      <p class="title">Score: <span id="result" default="0">0</span></p>
-      <div class="grid">
-        <!--  -->
+  <body class="nes-container is-rounded is-dark">
+    <div id="container" class="nes-container with-title is-rounded is-dark">
+      <p class="title">Memory Game</p>
+      <p class="nes-text is-primary">Match Sets of Two</p>
+      <!-- game grid w/ score -->
+      <div
+        id="game"
+        class="nes-container with-title is-centered is-rounded is-dark"
+      >
+        <p class="title">Score: <span id="result" default="0">0</span></p>
+        <div class="grid"></div>
       </div>
     </div>
     <button id="restart" class="nes-btn is-success">Restart?</button>
