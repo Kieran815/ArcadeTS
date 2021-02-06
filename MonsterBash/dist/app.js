@@ -4,6 +4,8 @@ var monster = document.querySelectorAll(".monster");
 var timeLeft = document.querySelector("#time-left");
 var score = document.querySelector("#score");
 var resetBtn = document.querySelector("#reset-button");
+var gameOver = document.querySelector("#game-over");
+var final = document.querySelector("#final-score");
 var monsterLocation;
 var monsterTimerId;
 var result = 0;
@@ -18,7 +20,7 @@ function randomSquare() {
 }
 square.forEach(function (id) {
     id.addEventListener("mouseup", function () {
-        if (parseInt(id.id) === monsterLocation) {
+        if (parseInt(id.id) === monsterLocation && currentTime > -1) {
             result = result + 1;
             score.textContent = result.toString();
         }
@@ -35,23 +37,21 @@ function countDown() {
     currentTime = currentTime - 1;
     timeLeft.textContent = currentTime.toString();
     resetBtn.style.visibility = "hidden";
+    if (currentTime < 6) {
+        timeLeft.classList.remove("is-disabled");
+        timeLeft.classList.add("is-error");
+    }
     if (currentTime < 0) {
         clearInterval(monsterTimerId);
         clearInterval(timerId);
         timeLeft.textContent = "0";
-        alert("Game Over. Final Score: " + result);
+        gameOver.style.visibility = "visible";
+        final.textContent = "Final Score: " + result.toString();
         resetBtn.style.visibility = "visible";
     }
 }
 var timerId = setInterval(countDown, 1000);
 function startGame() {
-    clearInterval(timerId);
-    monsterTimerId = undefined;
-    result = 0;
-    score.textContent = result.toString();
-    timeLeft.textContent = "5";
-    currentTime = parseInt(timeLeft.textContent);
-    monsterTimerId = setInterval(randomSquare, 1000);
-    timerId = setInterval(countDown, 1000);
+    location.reload();
 }
 //# sourceMappingURL=app.js.map

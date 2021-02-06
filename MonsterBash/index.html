@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monster Bash</title>
+    <title>Click of Cthulhu</title>
     <!-- NES.css -->
     <link
       href="https://unpkg.com/nes.css@latest/css/nes.min.css"
@@ -25,21 +25,23 @@
 
   <body>
     <div class="nes-container with-title is-centered is-rounded is-dark">
-      <p class="title">Monster Bash</p>
+      <p class="title">Click of Cthulhu</p>
+      <p>30 seconds to Smash The Great Old One</p>
       <div class="game-data">
-        <p>Time Remaining: <span id="time-left">5</span></p>
-        <p>Score: <span id="score">0</span></p>
+        <p class="nes-text is-success">
+          Time Remaining:
+          <span class="nes-text is-disabled" id="time-left">30</span>
+        </p>
+        <p class="nes-text is-primary">
+          Score: <span class="nes-text is-warning" id="score">0</span>
+        </p>
       </div>
     </div>
-    <div
-      class="game-container nes-container is-dark is-rounded"
-      style="
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      "
-    >
+    <div class="game-container nes-container is-dark is-rounded">
+      <div id="game-over">
+        <p>Time's Up!!!</p>
+        <p id="final-score">Filler Content</p>
+      </div>
       <div class="grid">
         <div class="square" id="1"></div>
         <div class="square" id="2"></div>
