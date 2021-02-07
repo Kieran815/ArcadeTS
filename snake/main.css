@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+#app-container {
+  min-height: 100vh;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  background-color: grey;
+  width: 603px; /* ex 3px account for add'l border */
+  height: 603px;
+  display: flex;
+  flex-wrap: wrap;
+  border-style: solid;
+}
+
+.grid div {
+  width: 60px;
+  height: 60px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.snake {
+  background-color: #228b22;
+  border-radius: 50%;
+  border: 1px dotted red;
+}
+
+#fruit {
+  background-color: none;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
