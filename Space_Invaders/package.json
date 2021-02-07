@@ -1,0 +1,24 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Kieran815/ArcadeTS.git"
+  },
+  "author": "K Michael Milligan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kieran815/ArcadeTS/issues"
+  },
+  "homepage": "https://github.com/Kieran815/ArcadeTS#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
