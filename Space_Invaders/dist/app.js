@@ -1,13 +1,15 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
     const squares = document.querySelectorAll(".grid div");
+    const finalResult = document.querySelector("#final-result");
     const resultDisplay = document.querySelector("#result");
     let width = 15;
-    let currentShooterIndex = 202;
+    let curHeroIndex = 202;
     let currentInvaderIndex = 0;
     let alienInvadersTakenDown = [];
     let direction = 1;
     let invaderId;
+    let gameSpeed = 500;
     let result = 0;
     const alienInvaders = [
         0,
@@ -44,24 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
     alienInvaders.forEach((invader) => {
         squares[currentInvaderIndex + invader].classList.add("invader");
     });
-    squares[currentShooterIndex].classList.add("shooter");
-    function moveShooter(e) {
-        squares[currentShooterIndex].classList.remove("shooter");
+    squares[curHeroIndex].classList.add("hero");
+    function moveHero(e) {
+        squares[curHeroIndex].classList.remove("hero");
         switch (e.keyCode) {
             case 37:
-                if (currentShooterIndex % width !== 0) {
-                    currentShooterIndex -= 1;
+                if (curHeroIndex % width !== 0) {
+                    curHeroIndex -= 1;
                 }
                 break;
             case 39:
-                if (currentShooterIndex % width < width - 1) {
-                    currentShooterIndex += 1;
+                if (curHeroIndex % width < width - 1) {
+                    curHeroIndex += 1;
                 }
                 break;
         }
-        squares[currentShooterIndex].classList.add("shooter");
+        squares[curHeroIndex].classList.add("hero");
     }
-    document.addEventListener("keydown", moveShooter);
+    document.addEventListener("keydown", moveHero);
     function moveInvaders() {
         const leftEdge = alienInvaders[0] % width === 0;
         const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width - 1;
@@ -87,59 +89,88 @@ document.addEventListener("DOMContentLoaded", () => {
                 squares[alienInvaders[i]].classList.add("invader");
             }
         }
-        if (squares[currentShooterIndex].classList.contains("shooter") &&
-            squares[currentShooterIndex].classList.contains("invader")) {
+        if (squares[curHeroIndex].classList.contains("hero") &&
+            squares[curHeroIndex].classList.contains("invader")) {
             console.log("game over 1");
-            resultDisplay.textContent = "Game Over";
-            squares[currentShooterIndex].classList.add("boom");
+            if (finalResult) {
+                finalResult.textContent = `You Have Been Destroyed! Final Score: ${result}`;
+            }
+            squares[curHeroIndex].classList.add("boom");
             clearInterval(invaderId);
         }
         for (let i = 0; i <= alienInvaders.length - 1; i++) {
             if (alienInvaders[i] > squares.length - (width - 1)) {
                 console.log("game over 2");
-                resultDisplay.textContent = "Game Over";
+                if (finalResult) {
+                    finalResult.textContent = `The Aliens have Landed! Final Score: ${result}`;
+                }
                 clearInterval(invaderId);
             }
         }
         if (alienInvadersTakenDown.length === alienInvaders.length) {
-            resultDisplay.textContent = "You Win!!!";
-            clearInterval(invaderId);
+            if (resultDisplay) {
+                resultDisplay.textContent = "Get Ready for the Next Level!!!";
+                clearInterval(invaderId);
+            }
+            setTimeout(() => {
+                for (let i = 0; i < alienInvaders.length; i++) {
+                    alienInvaders[i] = i;
+                }
+                invaderId = 0;
+                squares.forEach((square) => {
+                    square.className = "";
+                });
+                gameSpeed = gameSpeed - 100;
+                curHeroIndex = 202;
+                squares[curHeroIndex].classList.add("hero");
+                currentInvaderIndex = 0;
+                console.log(currentInvaderIndex);
+                alienInvaders.forEach((invader) => {
+                    console.log(currentInvaderIndex + invader);
+                    squares[currentInvaderIndex + invader].classList.add("invader");
+                });
+                alienInvadersTakenDown = [];
+                direction = 1;
+                invaderId = setInterval(moveInvaders, gameSpeed);
+            }, 3000);
         }
     }
-    invaderId = setInterval(moveInvaders, 500);
+    invaderId = setInterval(moveInvaders, gameSpeed);
     function shoot(e) {
         let laserId;
-        let currentLaserIndex = currentShooterIndex;
+        let currentLaserIndex = curHeroIndex;
         function moveLaser() {
-            squares[currentLaserIndex].classList.remove("laser");
-            currentLaserIndex -= width;
-            squares[currentLaserIndex].classList.add("laser");
-            if (squares[currentLaserIndex].classList.contains("invader")) {
+            if (squares[currentLaserIndex]) {
                 squares[currentLaserIndex].classList.remove("laser");
-                squares[currentLaserIndex].classList.remove("invader");
-                squares[currentLaserIndex].classList.add("boom");
-                setTimeout(() => {
-                    squares[currentLaserIndex].classList.remove("boom");
-                }, 250);
-                clearInterval(laserId);
-                const alienTakenDown = alienInvaders.indexOf(currentLaserIndex);
-                alienInvadersTakenDown.push(alienTakenDown);
-                result++;
-                resultDisplay.textContent = result.toString();
-            }
-            if (currentLaserIndex < width) {
-                clearInterval(laserId);
-                setTimeout(() => {
+                currentLaserIndex -= width;
+                squares[currentLaserIndex].classList.add("laser");
+                if (squares[currentLaserIndex].classList.contains("invader")) {
                     squares[currentLaserIndex].classList.remove("laser");
-                }, 100);
-            }
-            squares.forEach((square) => {
-                if (square.classList.contains("boom")) {
+                    squares[currentLaserIndex].classList.remove("invader");
+                    squares[currentLaserIndex].classList.add("boom");
                     setTimeout(() => {
-                        square.className = "";
+                        squares[currentLaserIndex].classList.remove("boom");
                     }, 250);
+                    clearInterval(laserId);
+                    const alienTakenDown = alienInvaders.indexOf(currentLaserIndex);
+                    alienInvadersTakenDown.push(alienTakenDown);
+                    result++;
+                    if (resultDisplay) {
+                        resultDisplay.textContent = result.toString();
+                    }
                 }
-            });
+                if (currentLaserIndex < width) {
+                    clearInterval(laserId);
+                    squares[currentLaserIndex].classList.remove("laser");
+                }
+                squares.forEach((square) => {
+                    if (square.classList.contains("boom")) {
+                        setTimeout(() => {
+                            square.className = "";
+                        }, 250);
+                    }
+                });
+            }
         }
         document.addEventListener("keyup", (e) => {
             if (e.keyCode === 32) {

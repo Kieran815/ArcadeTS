@@ -18,14 +18,12 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
-
-    <script src="./dist/app.js" defer></script>
   </head>
 
   <body>
     <div class="nes-container with-title is-rounded is-dark">
       <p class="title">Space Invaders</p>
-      <h2>Score: <span id="result"></span></h2>
+      <h2 id="final-result">Score: <span id="result">0 </span></h2>
       <!-- 15 x 15 grid = 225 div -->
       <div id="game-container" class="nes-container is-dark">
         <div class="grid">
@@ -257,5 +255,7 @@
         </div>
       </div>
     </div>
+
+    <script src="./dist/app.js" defer></script>
   </body>
 </html>
