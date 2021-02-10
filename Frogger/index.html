@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArcadeTS</title>
+    <!-- css sheet -->
+    <link rel="stylesheet" href="./main.css" />
+    <!-- NES.css -->
+    <link
+      href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Press Start 2P font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="nes-container with-title is-rounded is-dark">
+      <p class="title">Frogger</p>
+
+      <div id="controls">
+        <h3>Time Remaining: <span id="time-left">20</span></h3>
+        <button id="button">Start/Pause</button>
+      </div>
+      <div id="container">
+        <h3><span id="result">result</span></h3>
+        <div class="grid">
+          <!-- 13 empty (2 rows) -->
+          <!-- ending grid row (empty)(grass) -->
+          <div class="grass"></div>
+          <div class="grass"></div>
+          <div class="grass"></div>
+          <div class="grass"></div>
+          <div class="ending-block"></div>
+          <div class="grass"></div>
+          <div class="grass"></div>
+          <div class="grass"></div>
+          <div class="grass"></div>
+
+          <!-- empty grid row (beach) -->
+          <div class="beach"></div>
+          <div class="beach"></div>
+          <div class="beach"></div>
+          <div class="beach"></div>
+          <div class="beach"></div>
+          <div class="beach"></div>
+          <div class="beach"></div>
+          <div class="beach"></div>
+          <div class="beach"></div>
+
+          <!-- ************************************************* -->
+
+          <!-- RIVER -->
+          <!-- l1,l2,l3 are logs; l4, l5 are empty/river -->
+
+          <!-- RIVER LEFT (logs) -->
+          <!-- log 1 -->
+          <div class="log-left l1"></div>
+          <div class="log-left l2"></div>
+          <div class="log-left l3"></div>
+          <!-- l4, l5 are empty/river -->
+          <div class="log-left l4"></div>
+          <div class="log-left l5"></div>
+
+          <!-- log 2 -->
+          <div class="log-left l1"></div>
+          <div class="log-left l2"></div>
+          <div class="log-left l3"></div>
+          <!-- river -->
+          <div class="log-left l4"></div>
+
+          <!-- RIVER RIGHT -->
+          <!-- starts @ l5: grid is 9x9 -->
+
+          <!-- so grid 10 is first of next row -->
+          <div class="log-right l5"></div>
+
+          <!-- log 1 -->
+          <div class="log-right l1"></div>
+          <div class="log-right l2"></div>
+          <div class="log-right l3"></div>
+
+          <!-- river -->
+          <div class="log-right l4"></div>
+          <div class="log-right l5"></div>
+
+          <!-- log 2 -->
+          <div class="log-right l1"></div>
+          <div class="log-right l2"></div>
+          <div class="log-right l3"></div>
+          <!-- END RIVER -->
+
+          <!-- ********************************************* -->
+
+          <!-- Empty grid row (beach/shoulder) -->
+          <div class="middle"></div>
+          <div class="middle"></div>
+          <div class="middle"></div>
+          <div class="middle"></div>
+          <div class="middle"></div>
+          <div class="middle"></div>
+          <div class="middle"></div>
+          <div class="middle"></div>
+          <div class="middle"></div>
+
+          <!-- ************************** -->
+
+          <!-- ROAD -->
+
+          <!-- ROAD RIGHT -->
+          <!-- only c1 is an impact div -->
+
+          <!-- car 1 -->
+          <div class="car-right c1"></div>
+          <div class="car-right c2"></div>
+          <div class="car-right c3"></div>
+
+          <!-- car 2 -->
+          <div class="car-right c1"></div>
+          <div class="car-right c2"></div>
+          <div class="car-right c3"></div>
+
+          <!-- car 3 -->
+          <div class="car-right c1"></div>
+          <div class="car-right c2"></div>
+          <div class="car-right c3"></div>
+          <!-- END ROAD RIGHT -->
+
+          <!-- ROAD LEFT -->
+          <!-- car 1 -->
+          <div class="car-left c1"></div>
+          <div class="car-left c2"></div>
+          <div class="car-left c3"></div>
+
+          <!-- car 2 -->
+          <div class="car-left c1"></div>
+          <div class="car-left c2"></div>
+          <div class="car-left c3"></div>
+
+          <!-- car 3 -->
+          <div class="car-left c1"></div>
+          <div class="car-left c2"></div>
+          <div class="car-left c3"></div>
+
+          <!-- empty row (shoulder) -->
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+
+          <!-- ending grid row (empty)(grass) -->
+          <div class="trash"></div>
+          <div class="trash"></div>
+          <div class="trash"></div>
+          <div class="trash"></div>
+          <div class="starting-block frog"></div>
+          <div class="trash"></div>
+          <div class="trash"></div>
+          <div class="trash"></div>
+          <div class="trash"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./dist/app.js" defer></script>
+</html>

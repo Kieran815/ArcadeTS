@@ -1,0 +1,125 @@
+/* Game Board Styles */
+.grid {
+  border: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  height: 722px;
+  width: 722px;
+}
+
+.grid div {
+  height: 80px;
+  width: 80px;
+}
+
+/* surfaces (gameboard) */
+.grass {
+  background-color: green;
+  border-bottom: 4px dashed tan;
+}
+
+.ending-block {
+  background-color: lightgreen;
+}
+
+.beach {
+  background-color: tan;
+  border-top: 4px dashed green;
+}
+
+.middle {
+  background: linear-gradient(tan, transparent);
+
+  border-bottom: 2px solid black;
+}
+
+.starting-block {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.trash {
+  background: linear-gradient(#181818, #000);
+  background-image: url("./Trash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Object Styles */
+
+/* cars (collision / game over) */
+.c1 {
+  background-color: grey;
+  background-image: url("./car.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* road (empty / safe) */
+.c2,
+.c3 {
+  background-color: grey;
+}
+
+.car-right {
+  border-bottom: 2px dashed white;
+}
+
+.car-left {
+  border-top: 2px dashed white;
+  border-bottom: 2px solid black;
+}
+
+/* logs (collision / safe_ */
+.l1,
+.l2,
+.l3 {
+  background-color: brown;
+}
+
+.l1 {
+  border-left: 4px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.l2 {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.l3 {
+  border-right: 4px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+/* river (empty / game over) */
+.l4,
+.l5 {
+  background-color: lightblue;
+}
+
+/* Avatar */
+.frog {
+  background-image: url("./kermit.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Control Styles */
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+#result {
+  visibility: hidden;
+}
