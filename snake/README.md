@@ -8,3 +8,4 @@ Copy and paste folder to start a new TypeScript project.
 - added `.gitingore` to skip all subsequent `node_modules` folders by default
 
 **NOTE:** make sure to run `npm install` as the `node_modules` folder is retracted by default.
+# SnakeTS

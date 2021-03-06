@@ -10,3 +10,4 @@ cover dom-manipulation with typescript
 issue with `this` (ln113), and need to add an interface for the deck
 
 **NOTE:** make sure to run `npm install`, as the `node_modules` folder is redacted by default.
+# MemoryGameTS
